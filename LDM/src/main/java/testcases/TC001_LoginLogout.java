@@ -24,11 +24,12 @@ public class TC001_LoginLogout extends ProjectMethods{
 		.enterUsername("administrator")
 		.enterPassword("password-1")  
 		.clickLogin()
-		.clickSamCheckin()
+		.clickSamCheckin().clickSCVQueryPanel()
+
 		.clickSCVNew()
 		.clickSCEClientFind()
-		.clickSCESelectClient().
-		clickSCESaveOptions("Save and Close")
+		.clickSCESelectClient()
+		.clickSCESaveOptions("Save and Close")
 		;
 	}
 //	@Test(dependsOnMethods = {"loginLogoutAndSaveClient"})

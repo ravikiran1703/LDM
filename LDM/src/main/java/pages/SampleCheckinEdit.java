@@ -11,6 +11,7 @@ import wdMethods.ProjectMethods;
 
 public class SampleCheckinEdit  extends ProjectMethods{
 
+
 	public SampleCheckinEdit() {
 		PageFactory.initElements(driver, this);
 	}
@@ -19,7 +20,9 @@ public class SampleCheckinEdit  extends ProjectMethods{
 
 	@FindBy(how=How.XPATH, using="//iframe[contains(@id,'Vertical_PopupWindow')]") WebElement eleSCEClientlistframe;
 	@FindBy(how=How.XPATH, using="//td[@class='dxgv dx-al' and text() = '6 Solutions']") WebElement eleSCESelectClient;
+	
 	//@FindBy(how=How.CLASS_NAME, using="dxm-item dropDownSave dxm-dropDownMode dxm-noImage") WebElement eleSCESaveBtn;
+	
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI1i1_") WebElement eleSCESaveBtn;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI1_P") WebElement eleSCESaveDrpdwn;
 	@FindBy(how=How.ID, using="dxss_830993610") WebElement eleSCEVerifySave;
@@ -33,11 +36,11 @@ public class SampleCheckinEdit  extends ProjectMethods{
 	
 	public SampleCheckinEdit clickSCEClientFind() {
 	    click(eleSCEClientFind);
-	    return this;   
+	    return  this;   
 	}
 	
 	public SampleCheckinEdit clickSCESelectClient()  {
-			switchToFrame(eleSCEClientlistframe);
+		switchToFrame(eleSCEClientlistframe);
 		doubleClick(eleSCESelectClient);	       
 	    return this;   
 	}
@@ -63,4 +66,5 @@ public class SampleCheckinEdit  extends ProjectMethods{
 		   acceptAlert();
 		   return this;   
 		   }
-		}
+		
+}
