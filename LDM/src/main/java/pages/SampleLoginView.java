@@ -22,6 +22,7 @@ public class SampleLoginView extends ProjectMethods{
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI7_") WebElement eleSLVRefresh;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI10_") WebElement eleSLVDotsBtn;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI6_") WebElement eleSLVQueryData;
+	@FindBy(how=How.XPATH, using="//iframe[contains(@id,'Vertical_PopupWindow')]") WebElement eleSCVQueryFrame;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI8_") WebElement eleSLVSymbol;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI9_") WebElement eleSLVExportTo;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI9_P") WebElement eleSLVExportToDrpBtn;
@@ -29,23 +30,31 @@ public class SampleLoginView extends ProjectMethods{
 	@FindBy(how=How.ID, using="Vertical_SearchAC_Menu_ITCNT0_xaf_a0_Ed_B1") WebElement eleSLVSearchBtn;
 	@FindBy(how=How.XPATH, using="//span[contains(@id,'_DXSelAllBtn32_D')]") WebElement eleSLVSeletectAll;
 	@FindBy(how=How.ID, using="dxp-comboBox") WebElement eleSLVPageSize;	
-	//QueryData Popup:
+	
+	//Query Data::
 	@FindBy(how=How.ID, using="Dialog_SAC_Menu_DXI0_") WebElement eleSLVQueryOk;
 	@FindBy(how=How.ID, using="Dialog_SAC_Menu_DXI1_") WebElement eleSLVQueryCancel;
 	@FindBy(how=How.XPATH, using="//td[contains(@id,'_dviJobID_Edit_find_Edit_B0') and @title ='Find']") WebElement eleSLVQueryJobIDFind;
 	@FindBy(how=How.XPATH, using="//td[contains(@id,'_dviJobID_Edit_find_Edit_B1') and @title ='Clear']") WebElement eleSLVQueryJobIDClear;
 	@FindBy(how=How.XPATH, using="//td[contains(@id,'_dviTestName_Edit_find_Edit_B0') and @title ='Find']") WebElement eleSLVQueryTestFind;
 	@FindBy(how=How.XPATH, using="//td[contains(@id,'_dviTestName_Edit_find_Edit_B1') and @title ='Clear']") WebElement eleSLVQueryTestClear;
-	@FindBy(how=How.XPATH, using="") WebElement eleSLVQuerydumFrame;
-//JobId Popup:
+	
+	//JobId Popup::
 	@FindBy(how=How.XPATH, using="//iframe[contains(@id,'Dialog_PopupWindow')]") WebElement eleSLVJobIdFrame;
 	@FindBy(how=How.ID, using="FindDialog_SAC_Menu_ITCNT0_xaf_a0_Ed_I") WebElement eleSLVJobIdText;
 	@FindBy(how=How.ID, using="FindDialog_SAC_Menu_ITCNT0_xaf_a0_Ed_B1") WebElement eleSLVJobIdFindBtn;
-	@FindBy(how=How.ID, using="//tr[contains(@id ,'_DXDataRow0')]") WebElement eleSLVJobIDFirstRow;
-	@FindBy(how=How.XPATH, using="FindDialog_PopupActions_Menu_DXI0_") WebElement eleSLVJobIdOk;
-	@FindBy(how=How.XPATH, using="FindDialog_PopupActions_Menu_DXI1_") WebElement eleSLVJobIdCancel;
-	
-	
+	@FindBy(how=How.XPATH, using="//tr[contains(@id ,'_DXDataRow0')]") WebElement eleSLVJobIdFirstRow;
+	@FindBy(how=How.ID, using="FindDialog_PopupActions_Menu_DXI0_") WebElement eleSLVJobIdOk;
+	@FindBy(how=How.ID, using="FindDialog_PopupActions_Menu_DXI1_") WebElement eleSLVJobIdCancel;
+
+	//Test Popup::
+	@FindBy(how=How.XPATH, using="//iframe[contains(@id,'Dialog_PopupWindow')]") WebElement eleSLVTestFrame;
+	@FindBy(how=How.ID, using="FindDialog_SAC_Menu_ITCNT0_xaf_a0_Ed_I") WebElement eleSLVTestText;
+	@FindBy(how=How.ID, using="FindDialog_SAC_Menu_ITCNT0_xaf_a0_Ed_B1") WebElement eleSLVTestFindBtn;
+	@FindBy(how=How.XPATH, using="//tr[contains(@id ,'_DXDataRow0')]") WebElement eleSLVTestFirstRow;
+	@FindBy(how=How.ID, using="FindDialog_PopupActions_Menu_DXI0_") WebElement eleSLVTestOk;
+	@FindBy(how=How.ID, using="FindDialog_PopupActions_Menu_DXI1_") WebElement eleSLVTestCancel;
+	 
 
 	public SampleLoginEdit clickSLVNew() {
 		click(eleSLVNew);
@@ -117,63 +126,83 @@ public class SampleLoginView extends ProjectMethods{
 		selectDropDownUsingText(eleSLVPageSize,data);
 		return this;
 	}
-//QueryData
-	public SampleLoginView clickSLVQueryOk() {
-		click(eleSLVQueryOk);
-		return this;
-	} 
+	//QueryData::
+		public SampleLoginView clickREJObIdOk() {
+			click(eleSLVQueryOk);
+			return this;
+		} 
 
-	public SampleLoginView clickSLVQueryCancel() {
-		click(eleSLVQueryCancel);
-		return this;
-	} 
+		public SampleLoginView clickREJObIdCancel() {
+			click(eleSLVQueryCancel);
+			return this;
+		} 
 
-	public SampleLoginView searchSLVQueryJobID() {
-		click(eleSLVQueryJobIDFind);
-		switchToFrame(eleSLVQuerydumFrame);
-		return this;
-	} 
+		public SampleLoginView getREJobIDBtn() {
+			click(eleSLVQueryJobIDFind);
+			switchToFrame(eleSLVJobIdFrame);
+			return this;
+		} 
 
-	public SampleLoginView ClearSLVQueryJobID() {
-		click(eleSLVQueryJobIDClear);
-		return this;
-	} 
+		public SampleLoginView ClearREJobIDBtn() {
+			click(eleSLVQueryJobIDClear);
+			return this;
+		} 
 
-	public SampleLoginView SearchSLVQueryTest() {
-		click(eleSLVQueryTestFind);
-		switchToFrame(eleSLVQuerydumFrame);
-		return this;
-	} 
+		public SampleLoginView getRETestBtn() {
+			click(eleSLVQueryTestFind);
+			switchToFrame(eleSLVTestFrame);
+			return this;
+		} 
 
-	public SampleLoginView ClearSLVQueryTest() {
-		click(eleSLVQueryTestClear);
-		return this;
-	}
-	//JobId:
-	public SampleLoginView SearchSLVJObId(String JobId) {
-		type(eleSLVJobIdText,JobId);
-		click(eleSLVJobIdFindBtn);
-		return this;
-	}
-		
-	public SampleLoginView DoubleClickSLVSltFirstRow() {
-		doubleClick(eleSLVJobIDFirstRow);
-		return this;
-	}
-	
-	public SampleLoginView ClickSLVSltFirstRow() {
-		click(eleSLVJobIDFirstRow);
-		return this;
-	}
-	
-	public SampleLoginView ClickSLVOkBtn() {
-		click(eleSLVJobIdOk);
-		return this;
-	}
-	
-	public SampleLoginView ClickSLVCancelBtn() {
-		click(eleSLVJobIdCancel);
-		return this;
-	}
+		public SampleLoginView ClearRETestBtn() {
+			click(eleSLVQueryTestClear);
+			return this;
+		}
+
+		//JobId::
+		public SampleLoginView SearchREJObId(String JobId) {
+			type(eleSLVJobIdText,JobId);
+			click(eleSLVJobIdFindBtn);
+			return this;
+		}
+
+		public SampleLoginView DoubleClickREJObIdFirstRow() {
+			doubleClick(eleSLVJobIdFirstRow);
+			return this;
+		}
+
+		public SampleLoginView ClickREJObIdFirstRow() {
+			click(eleSLVJobIdFirstRow);
+			click(eleSLVJobIdOk);
+			return this;
+		}
+
+		public SampleLoginView ClickREJObIdCancelBtn() {
+			click(eleSLVJobIdCancel);
+			return this;
+		}
+
+		//Test::
+		public SampleLoginView SearchRETest(String Test) {
+			type(eleSLVTestText,Test);
+			click(eleSLVTestFindBtn);
+			return this;
+		}
+
+		public SampleLoginView DoubleClickRETestSltFirstRow() {
+			doubleClick(eleSLVTestFirstRow);
+			return this;
+		}
+
+		public SampleLoginView ClickRETestSltFirstRow() {
+			click(eleSLVTestFirstRow);
+			click(eleSLVTestOk);
+			return this;
+		}
+
+		public SampleLoginView ClickRETestCancelBtn() {
+			click(eleSLVTestCancel);
+			return this;
+		}
 	
 }

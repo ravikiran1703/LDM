@@ -270,6 +270,19 @@ public void type(WebElement ele, String data) {
 			reportStep("WebDriverException : "+e.getMessage(), "FAIL");
 		} 
 	}
+	
+	// Added on 09/03/2019 - MRK
+	public void verifyEnabled(WebElement ele) {
+		try {
+			if(ele.isEnabled()) {
+				reportStep("The element "+ele+" is Enabled","PASS");
+			} else {
+				reportStep("The element "+ele+" is not Enabled","FAIL");
+			}
+		} catch (WebDriverException e) {
+			reportStep("WebDriverException : "+e.getMessage(), "FAIL");
+		} 
+	}
 
 	public void switchToWindow(int index) {
 		try {

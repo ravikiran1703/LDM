@@ -1,5 +1,6 @@
 package testcases;
 
+import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -19,27 +20,47 @@ public class TC001_LoginLogout extends ProjectMethods{
 		//dataSheetName=" ";
 	}
 	@Test()
-	public void loginLogoutAndSaveClient() {
+	public void ValidUsernameAndPassword() {
 		new LoginPage() 
 		.enterUsername("administrator")
 		.enterPassword("password-1")  
 		.clickLogin()
-		.clickSamCheckin().clickSCVQueryPanel()
-
-		.clickSCVNew()
-		.clickSCEClientFind()
-		.clickSCESelectClient()
-		.clickSCESaveOptions("Save and Close")
+//		.clickSamCheckin()
+//		.clickSCVNew()
+//		.clickSCEClientFind()
+//		.clickSCESelectClient()
+//		.clickSCESaveOptions("Save and Close")
 		;
 	}
-//	@Test(dependsOnMethods = {"loginLogoutAndSaveClient"})
-//	public void SaveJobID() {
-//		new LoginPage() 
-//		.enterUsername("administrator")
-//		.enterPassword("password-1").clickLogin() .clickSamLogin().clickSLVNew().clickSLENew().SelectSLEJobId().typeSLEClientSampleID("Sample-1")
-//		.clickSLESave();
-//	}
-
+	@Test(dependsOnMethods = {"ValidUsernameAndPassword"})
+	public void InValidUsernameAndValidPassword() {
+		new LoginPage() 
+		.enterUsername("admin")
+		.enterPassword("password-1")
+		.clickLogin() ;
+	}
+	@Test(dependsOnMethods = {"InValidUsernameAndValidPassword"})
+	public void ValidUsernameAndInValidPassword() {
+		new LoginPage() 
+		.enterUsername("administrator")
+		.enterPassword("password")
+		.clickLogin() ;
+	}
+	@Test(dependsOnMethods = {"ValidUsernameAndPassword"})
+	public void EmptyUsernameAndValidPassword() {
+		new LoginPage() 
+		.enterUsername(" ")
+		.enterPassword("password-1")
+		.clickLogin() ;
+	}
+	
+	@Test(dependsOnMethods = {"EmptyUsernameAndValidPassword"})
+	public void ValidUsernameAndEmptyPassword() {
+		new LoginPage() 
+		.enterUsername("administrator")
+		.enterPassword(" ")
+		.clickLogin() ;
+	}
 }
 
 
