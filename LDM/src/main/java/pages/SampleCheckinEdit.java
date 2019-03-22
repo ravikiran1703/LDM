@@ -80,7 +80,7 @@ public class SampleCheckinEdit  extends ProjectMethods{
 
 	@FindBy(how=How.XPATH, using="//table[contains(@id,'dviDueDate_Edit_DDD_C_FNP_y')]/tbody/tr/td[1]") WebElement eleSCEDueDateYearPrevBtn;
 	@FindBy(how=How.XPATH, using="//table[contains(@id,'dviDueDate_Edit_DDD_C_FNP_y')]/tbody/tr/td[7]") WebElement eleSCEDueDateYearNextBtn;
-	
+
 	//Date Controls Buttons
 	@FindBy(how=How.XPATH, using="//td[contains(@id,'dviRecievedDate_Edit_DDD_C_BT')]") WebElement eleSCERecievedDateTodayBtn;
 	@FindBy(how=How.XPATH, using="//td[contains(@id,'dviRecievedDate_Edit_DDD_C_BC')]") WebElement eleSCERecievedDateClearBtn;
@@ -94,7 +94,37 @@ public class SampleCheckinEdit  extends ProjectMethods{
 
 
 
-	@FindBy(how=How.XPATH, using="//td[@class='dxgv dx-al' and text() = '6 Solutions']") WebElement eleSCESelectClient;
+	//RecievedBy PopupControls::
+
+	@FindBy(how=How.XPATH, using="//table[starts-with(@id,'FindDialog') and contains(@id,'DXMainTable')]/tbody/tr/td[2]") WebElement eleSCERecievedByList;
+	@FindBy(how=How.ID, using="FindDialog_PopupActions_Menu_DXI0_") WebElement eleSCERecievedByCancelBtn;
+
+	//Clients PopupControls::
+	@FindBy(how=How.ID, using="FindDialog_SAC_Menu_ITCNT0_xaf_a0_Ed_I") WebElement eleSCEClientsSearchBarTxt;
+	@FindBy(how=How.ID, using="FindDialog_SAC_Menu_ITCNT0_xaf_a0_Ed_B1") WebElement eleSCEClientsSearchBtn;
+	@FindBy(how=How.XPATH, using="//table[starts-with(@id,'FindDialog') and contains(@id,'DXMainTable')]/tbody/tr/td[2]") WebElement eleSCEClientList;
+	@FindBy(how=How.ID, using="FindDialog_OC_Menu_DXI0_") WebElement eleSCENewClientBtn;
+	@FindBy(how=How.ID, using="FindDialog_PopupActions_Menu_DXI1_") WebElement eleSCEClientCancelBtn;
+
+	//Contacts PopupControls::
+	@FindBy(how=How.XPATH, using="//table[starts-with(@id,'FindDialog') and contains(@id,'DXMainTable')]/tbody/tr/td[2]") WebElement eleSCEContactsList;
+	@FindBy(how=How.ID, using="FindDialog_PopupActions_Menu_DXI0_") WebElement eleSCEContactCancelBtn;
+
+	//BroughtBy PopupControls::
+	@FindBy(how=How.XPATH, using="//table[starts-with(@id,'FindDialog') and contains(@id,'DXMainTable')]/tbody/tr/td[2]") WebElement eleSCEBroughtByList;
+	@FindBy(how=How.ID, using="FindDialog_SAC_Menu_ITCNT0_xaf_a0_Ed_I") WebElement eleSCEBroughtBySearchBarTxt;
+	@FindBy(how=How.ID, using="FindDialog_SAC_Menu_ITCNT0_xaf_a0_Ed_B1") WebElement eleSCEBroughtBySearchBtn;
+	@FindBy(how=How.ID, using="FindDialog_OC_Menu_DXI0_") WebElement eleSCENewBroughtByBtn;
+	@FindBy(how=How.ID, using="FindDialog_PopupActions_Menu_DXI1_") WebElement eleSCEBroughtByCancelBtn;
+
+	//projectID PopupControls::
+	@FindBy(how=How.XPATH, using="//table[starts-with(@id,'FindDialog') and contains(@id,'DXMainTable')]/tbody/tr/td[2]") WebElement eleSCEProjectIDList;
+	@FindBy(how=How.XPATH, using="FindDialog_PopupActions_Menu_DXI0_") WebElement eleSCEprojectIDCancelBtn;
+
+
+
+
+	@FindBy(how=How.CLASS_NAME, using="XafVCap-Second MainMenuTruncateCaption") WebElement eleSCESavedJobIdCaption;
 
 
 
@@ -102,13 +132,22 @@ public class SampleCheckinEdit  extends ProjectMethods{
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI1_P") WebElement eleSCESaveDrpdwn;
 
 
-	@FindBy(how=How.ID, using="dxss_830993610") WebElement eleSCEVerifySave;
+	@FindBy(how=How.XPATH, using="//div[@id='Vertical_mainMenu_Menu_DXSA1']//a") WebElement eleSCESaveTypeslist;
+	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI2_") WebElement eleSCEDeleteBtn;
+	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI3_") WebElement eleSCERefreshBtn;
+	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI4_") WebElement eleSCESymbolBtn;
+	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI5_") WebElement eleSCEPrevJobIdBtn;
+	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI6_") WebElement eleSCENextJobIdBtn;
+
 
 	@FindBy(how=How.CLASS_NAME, using="XafVCap-Second MainMenuTruncateCaption") WebElement eleSCEJobIDCaption;
 	@FindBy(how=How.XPATH, using="//div[@id='Vertical_mainMenu_Menu_DXSA1']/ul/li/a/span[1]") List<WebElement> allItems ;
 
+	@FindBy(how=How.ID, using="dxss_830993610") WebElement eleSCEVerifySave;
+
 	// the below xpath is to check the error for the maditory field - just change the td contains text  
 	//@FindBy(how=How.XPATH, using="//table[contains(@class,'ErrorMessage')]//tr[2]/td[contains(text(),'Client Name')]") WebElement eleSCEError;
+
 
 
 	public SampleCheckinEdit clickSCEClientFind() {
@@ -118,7 +157,7 @@ public class SampleCheckinEdit  extends ProjectMethods{
 
 	public SampleCheckinEdit clickSCESelectClient()  {
 		switchToFrame(eleSCEClientlistFrame);
-		doubleClick(eleSCESelectClient);	       
+	//	doubleClick(eleSCESelectClient);	       
 		return this;   
 	}
 
