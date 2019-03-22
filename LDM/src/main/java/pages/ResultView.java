@@ -1,22 +1,37 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 
+import wdMethods.ProjectMethods;
 import wdMethods.SeMethods;
 
-public class ResultView extends SeMethods {
+public class ResultView extends ProjectMethods {
+
+	public ResultView() {
+		PageFactory.initElements(driver, this);  
+	}
+
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI0_") WebElement eleRVRollBack;
-	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI1_") WebElement eleRVQueryPanel;
+
+	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI1_T") WebElement eleRVQueryPanel;
+	@FindBy(how=How.XPATH, using="//iframe[contains(@id,'Vertical_PopupWindow')]") WebElement eleRValQueryFrame;
+
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI2_") WebElement eleRVRefresh;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI3_") WebElement eleRVSymbol;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI4_") WebElement eleRVExportToBtn;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI4_P") WebElement eleRVExportToDrpDwn;
 	@FindBy(how=How.ID, using="Vertical_SearchAC_Menu_ITCNT0_xaf_a0_Ed_I") WebElement eleRVSearchTxt;
 	@FindBy(how=How.ID, using="Vertical_SearchAC_Menu_ITCNT0_xaf_a0_Ed_B1") WebElement eleRVSearchBtn;
-	@FindBy(how=How.ID, using="dxp-comboBox") WebElement eleSCVPageSize;
-	
+	@FindBy(how=How.XPATH, using="//span[contains(@id,'DXPagerBottom_PSB')]") WebElement eleRVPageSize;
+	@FindBy(how=How.XPATH, using="//div[contains(@id,'DXPagerBottom_PSP_DXME_')]/ul/li/div/span") List<WebElement> eleRVSelectPageSize;
+	@FindBy(how=How.XPATH, using="//table[contains(@id,'v48_DXMainTable')]/tbody/tr/td[1]/span") List<WebElement> eleRVCheckboxColumn;
+	@FindBy(how=How.ID, using="dxss_1070595900") WebElement eleRVSelectVerification;
+
 	//Query Data::
 	@FindBy(how=How.ID, using="Dialog_SAC_Menu_DXI0_") WebElement eleRVQueryOk;
 	@FindBy(how=How.ID, using="Dialog_SAC_Menu_DXI1_") WebElement eleRVQueryCancel;
@@ -24,9 +39,10 @@ public class ResultView extends SeMethods {
 	@FindBy(how=How.XPATH, using="//td[contains(@id,'_dviJobID_Edit_find_Edit_B1') and @title ='Clear']") WebElement eleRVQueryJobIDClear;
 	@FindBy(how=How.XPATH, using="//td[contains(@id,'_dviTestName_Edit_find_Edit_B0') and @title ='Find']") WebElement eleRVQueryTestFind;
 	@FindBy(how=How.XPATH, using="//td[contains(@id,'_dviTestName_Edit_find_Edit_B1') and @title ='Clear']") WebElement eleRVQueryTestClear;
-	
+
 	//JobId Popup::
-	@FindBy(how=How.XPATH, using="//iframe[contains(@id,'Dialog_PopupWindow')]") WebElement eleRVJobIdFrame;
+	@FindBy(how=How.XPATH, using="//div[contains(@id,'Dialog_PopupWindow')]//iframe") WebElement eleRVJobIdFrame;
+	//@FindBy(how=How.XPATH, using="//iframe[contains(@id,'Dialog_PopupWindow')]") WebElement eleRVJobIdFrame;
 	@FindBy(how=How.ID, using="FindDialog_SAC_Menu_ITCNT0_xaf_a0_Ed_I") WebElement eleRVJobIdText;
 	@FindBy(how=How.ID, using="FindDialog_SAC_Menu_ITCNT0_xaf_a0_Ed_B1") WebElement eleRVJobIdFindBtn;
 	@FindBy(how=How.XPATH, using="//tr[contains(@id ,'_DXDataRow0')]") WebElement eleRVJobIdFirstRow;
@@ -40,15 +56,25 @@ public class ResultView extends SeMethods {
 	@FindBy(how=How.XPATH, using="//tr[contains(@id ,'_DXDataRow0')]") WebElement eleRVTestFirstRow;
 	@FindBy(how=How.ID, using="FindDialog_PopupActions_Menu_DXI0_") WebElement eleRVTestOk;
 	@FindBy(how=How.ID, using="FindDialog_PopupActions_Menu_DXI1_") WebElement eleRVTestCancel;
-	 
+
 	public ResultView clickRVRollBack() {
-		click(eleRVRollBack);
+
+		if (VerifyAtLeastOneSelected(eleRVCheckboxColumn)) {
+			click(eleRVRollBack);
+		}
+		else {
+			verifyDisplayed(eleRVSelectVerification);
+		}
 		return this;
 	}
-	public ResultView clickRVQueryPanel() {
+
+	public ResultView clickRVQueryDataBtn() {
+
 		click(eleRVQueryPanel);
+		switchToFrame(eleRValQueryFrame);
 		return this;
 	}
+
 	public ResultView clickRVRefresh() {
 		click(eleRVRefresh);
 		return this;
@@ -73,7 +99,13 @@ public class ResultView extends SeMethods {
 		click(eleRVSearchBtn);
 		return this;
 	}
-	
+
+	public ResultView SelectRVPageSize(String data) {
+		click(eleRVPageSize);
+		clickbyElements(eleRVSelectPageSize,data);
+
+		return this;
+	}
 
 	//QueryData::
 	public ResultView clickRVJObIdOk() {
@@ -88,10 +120,19 @@ public class ResultView extends SeMethods {
 
 	public ResultView getRVJobIDBtn() {
 		click(eleRVQueryJobIDFind);
-		switchToFrame(eleRVJobIdFrame);
 		return this;
 	} 
-
+	
+	public ResultView switchRVJobIDFrame()  {
+	try {
+		Thread.sleep(5000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	switchToFrame(eleRVJobIdFrame);
+	return this;
+} 
 	public ResultView ClearRVJobIDBtn() {
 		click(eleRVQueryJobIDClear);
 		return this;
@@ -108,10 +149,13 @@ public class ResultView extends SeMethods {
 		return this;
 	}
 
+
+
 	//JobId::
 	public ResultView SearchRVJObId(String JobId) {
 		type(eleRVJobIdText,JobId);
 		click(eleRVJobIdFindBtn);
+		click(eleRVJobIdOk);
 		return this;
 	}
 

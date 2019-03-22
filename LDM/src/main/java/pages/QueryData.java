@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import wdMethods.ProjectMethods;
 import wdMethods.SeMethods;
 
-public class QueryData extends SeMethods{
+public class QueryData extends ProjectMethods{
 
 	public QueryData( ) {
 		PageFactory.initElements(driver, this);

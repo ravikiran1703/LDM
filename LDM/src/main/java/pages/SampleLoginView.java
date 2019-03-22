@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -28,8 +30,9 @@ public class SampleLoginView extends ProjectMethods{
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI9_P") WebElement eleSLVExportToDrpBtn;
 	@FindBy(how=How.ID, using="Vertical_SearchAC_Menu_ITCNT0_xaf_a0_Ed_I") WebElement eleSLVSearchTextBox;
 	@FindBy(how=How.ID, using="Vertical_SearchAC_Menu_ITCNT0_xaf_a0_Ed_B1") WebElement eleSLVSearchBtn;
-	@FindBy(how=How.XPATH, using="//span[contains(@id,'_DXSelAllBtn32_D')]") WebElement eleSLVSeletectAll;
-	@FindBy(how=How.ID, using="dxp-comboBox") WebElement eleSLVPageSize;	
+	@FindBy(how=How.XPATH, using="//span[contains(@id,'_DXSelAllBtn32_D')]") WebElement eleSLVSelectAll;
+	@FindBy(how=How.XPATH, using="//span[contains(@id,'DXPagerBottom_PSB')]") WebElement eleSLVPageSize;
+	@FindBy(how=How.XPATH, using="//div[contains(@id,'DXPagerBottom_PSP_DXME_')]/ul/li/div/span") List<WebElement> eleSLVSelectPageSize;
 	
 	//Query Data::
 	@FindBy(how=How.ID, using="Dialog_SAC_Menu_DXI0_") WebElement eleSLVQueryOk;
@@ -118,14 +121,18 @@ public class SampleLoginView extends ProjectMethods{
 	} 
 
 	public SampleLoginView clickSLVSeletectAll() {
-		click(eleSLVSeletectAll);
+		click(eleSLVSelectAll);
 		return this;
 	} 
 
 	public SampleLoginView SelectSLVPageSize(String data) {
-		selectDropDownUsingText(eleSLVPageSize,data);
+		click(eleSLVPageSize);
+		clickbyElements(eleSLVSelectPageSize,data);
 		return this;
 	}
+	
+	
+	
 	//QueryData::
 		public SampleLoginView clickREJObIdOk() {
 			click(eleSLVQueryOk);

@@ -13,21 +13,23 @@ public class HomePage extends ProjectMethods{
 		PageFactory.initElements(driver, this);
 	}
 		
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N0") WebElement eleSamRegTag;
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N0_0") WebElement eleSamCheckin;
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N0_1") WebElement eleSamLogin;
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N1") WebElement eleAnalysisTag;
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N1_0") WebElement eleResultEntry;
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N1_1") WebElement eleSDMSResultEntry;
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N1_2") WebElement eleResultView;
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N2") WebElement eleDataReviewTag;
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N2_0") WebElement eleResultVali;
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N2_1") WebElement eleResultAppl;
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N3") WebElement eleReportingTag;
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N3_0") WebElement eleCustReporting;
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N3_1") WebElement eleRptVali;
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N3_2") WebElement eleRptAppl;
-	@FindBy(how=How.ID, using="Vertical_NC_TL_N3_3") WebElement eleRptView;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N1") WebElement eleSamRegTag;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N1_0") WebElement eleSamCheckin;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N1_1") WebElement eleSamLogin;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N2") WebElement eleAnalysisTag;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N2_0") WebElement eleResultEntry;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N2_1") WebElement eleSDMSResultEntry;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N2_2") WebElement eleResultView;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N3") WebElement eleDataReviewTag;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N3_0") WebElement eleRawDataReview;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N3_1") WebElement eleRawDataVerify;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N3_2") WebElement eleResultVali;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N3_3") WebElement eleResultAppl;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N4") WebElement eleReportingTag;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N4_0") WebElement eleCustReporting;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N4_1") WebElement eleRptVali;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N4_2") WebElement eleRptAppl;
+	@FindBy(how=How.ID, using="Vertical_NC_TL_N4_3") WebElement eleRptView;
 	
 //	@FindBy(how=How.LINK_TEXT, using="Log Off") WebElement eleLogout;
 
@@ -51,19 +53,15 @@ public class HomePage extends ProjectMethods{
 	    return this;      
 	}
 
-	public LoginPage ResultEntry() {
+	public ResultEntry clickResultEntry() {
 	    click(eleResultEntry);
-	    return new LoginPage();   
+	    return new ResultEntry();   
 	}
 
-	public LoginPage clickSDMSResultEntry() {
-	    click(eleSDMSResultEntry);
-	    return new LoginPage();   
-	}
 
-	public LoginPage clickResultView() {
+	public ResultView clickResultView() {
 	    click(eleResultView);
-	    return new LoginPage();   
+	    return new ResultView();   
 	}
 
 	public HomePage clickDataReviewTag() {
@@ -71,14 +69,14 @@ public class HomePage extends ProjectMethods{
 	    return this;   
 	}
 
-	public LoginPage clickResultVali() {
+	public ResultValidation clickResultVali() {
 	    click(eleResultVali);
-	    return new LoginPage();   
+	    return new ResultValidation();   
 	}
 
-	public LoginPage clickResultAppl() {
+	public ResultApproval clickResultAppl() {
 	    click(eleResultAppl);
-    return new LoginPage();   
+    return new ResultApproval();   
 	}
 	
 	public HomePage clickReporting() {

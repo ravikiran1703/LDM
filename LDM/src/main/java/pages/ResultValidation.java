@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -22,7 +24,10 @@ public class ResultValidation  extends ProjectMethods{
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI5_") WebElement eleRValExportTo;
 	@FindBy(how=How.ID, using="Vertical_SearchAC_Menu_ITCNT0_xaf_a0_Ed_I") WebElement eleRValSearchText;
 	@FindBy(how=How.ID, using="Vertical_SearchAC_Menu_ITCNT0_xaf_a0_Ed_B1") WebElement eleRValSearchBtn;
-
+	@FindBy(how=How.XPATH, using="//span[contains(@id,'DXPagerBottom_PSB')]") WebElement eleRValPageSize;
+	
+	@FindBy(how=How.XPATH, using="//div[contains(@id,'DXPagerBottom_PSP_DXME_')]/ul/li/div/span") List<WebElement> eleRValSelectPageSize;
+	
 	//Query Data::
 	@FindBy(how=How.ID, using="Dialog_SAC_Menu_DXI0_") WebElement eleRValQueryOk;
 	@FindBy(how=How.ID, using="Dialog_SAC_Menu_DXI1_") WebElement eleRValQueryCancel;
@@ -80,6 +85,13 @@ public class ResultValidation  extends ProjectMethods{
 	public ResultValidation RValSearch(String data) {
 		type(eleRValSearchText,data);
 		click(eleRValSearchBtn);
+		return this;
+	}
+	
+	public ResultValidation SelectSLVPageSize(String data) {
+		click(eleRValPageSize);
+		clickbyElements(eleRValSelectPageSize,data);
+		
 		return this;
 	}
 

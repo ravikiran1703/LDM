@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
@@ -44,6 +45,7 @@ public class SeMethods extends Reporter implements WdMethods{
 				System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
 				driver = new FirefoxDriver();
 			}
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			driver.get(url);
 			driver.manage().window().maximize();
 			//System.out.println("The browser "+browser+" launched successfully");
@@ -76,36 +78,53 @@ public class SeMethods extends Reporter implements WdMethods{
 	public WebElement locateElement(String locValue) {
 		return driver.findElementById(locValue);
 	}
-	
-public void type(WebElement ele, String data) {
-	try {
-		ele.clear();
-		ele.sendKeys(data);
-		String x = ""+ele;
-		reportStep("The data: "+data+" entered successfully in the field :"+ele, "PASS");
-	} catch (InvalidElementStateException e) {
-		reportStep("The data: "+data+" could not be entered in the field :"+ele,"FAIL");
-	} catch (WebDriverException e) {
-		reportStep("Unknown exception occured while entering "+data+" in the field :"+ele, "FAIL");
+
+	public void type(WebElement ele, String data) {
+		try {
+			ele.clear();
+			ele.sendKeys(data);
+			String x = ""+ele;
+			reportStep("The data: "+data+" entered successfully in the field :"+ele, "PASS");
+		} catch (InvalidElementStateException e) {
+			reportStep("The data: "+data+" could not be entered in the field :"+ele,"FAIL");
+		} catch (WebDriverException e) {
+			reportStep("Unknown exception occured while entering "+data+" in the field :"+ele, "FAIL");
+		}
 	}
-}
 
 	//Added on 27/02/2019 - MRK.
 	// To Click the elements with the choice from the string value  
 	public void clickbyElements(List<WebElement> allItems , String locValueChoice) {
-		
-	//	List<WebElement> allItems = driver.findElements(By.xpath(locValueXpath));
+
+
 		for (int i = 0; i < allItems.size(); i++) {
 			if (allItems.get(i).getText().contains(locValueChoice)) {
 				allItems.get(i).click();
 			} 
 		}
 	}
-	
+
+	//Added on 19/03/2019 - MRK.
+	// To verify atleast one checkbox is selected in a gird  
+	public boolean VerifyAtLeastOneSelected(List<WebElement> allItems) {
+
+
+		for (int i = 0; i < allItems.size(); i++) {
+			if (allItems.get(i).isSelected()) {
+				return true;	 
+			} 
+
+		}
+		return false;
+	}
+
+
+
 	public void click(WebElement ele) {
+
 		String text = "";
 		try {
-			WebDriverWait wait = new WebDriverWait(driver, 10);
+			WebDriverWait wait = new WebDriverWait(driver, 15);
 			wait.until(ExpectedConditions.elementToBeClickable(ele));			
 			text = ele.getText();
 			ele.click();
@@ -270,7 +289,7 @@ public void type(WebElement ele, String data) {
 			reportStep("WebDriverException : "+e.getMessage(), "FAIL");
 		} 
 	}
-	
+
 	// Added on 09/03/2019 - MRK
 	public void verifyEnabled(WebElement ele) {
 		try {
@@ -299,7 +318,7 @@ public void type(WebElement ele, String data) {
 
 	public void switchToFrame(WebElement ele) {
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			driver.switchTo().frame(ele);
 			reportStep("switch In to the Frame "+ele,"PASS");
 		} catch (NoSuchFrameException e) {
@@ -307,7 +326,7 @@ public void type(WebElement ele, String data) {
 		} catch (WebDriverException e) {
 			reportStep("WebDriverException : "+e.getMessage(), "FAIL");
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			 //TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 	}
@@ -315,7 +334,9 @@ public void type(WebElement ele, String data) {
 	public void acceptAlert() {
 		String text = "";		
 		try {
-			
+
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			wait.until(ExpectedConditions.alertIsPresent());
 			Alert alert = driver.switchTo().alert();
 			text = alert.getText();
 			alert.accept();
@@ -386,32 +407,32 @@ public void type(WebElement ele, String data) {
 			reportStep("Unexpected error occured in Browser","FAIL", false);
 		}
 	}
-	
+
 	//Added on 22/2/2019 - MRK
-	
+
 	public void doubleClick(WebElement ele) {
-    Actions action = new Actions(driver);
+		Actions action = new Actions(driver);
 		String text = "";
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 10);
 			wait.until(ExpectedConditions.elementToBeClickable(ele));			
 			text = ele.getText();
 			action.doubleClick(ele).perform();
-		reportStep("The element "+text+" is Double clicked", "PASS");
+			reportStep("The element "+text+" is Double clicked", "PASS");
 		} catch (InvalidElementStateException e) {
 			reportStep("The element: "+text+" could not be Double clicked", "FAIL");
 		} catch (WebDriverException e) {
 			reportStep("Unknown exception occured while clicking in the field :", "FAIL");
 		} 
 	}
-	
+
 	// Added on 26/02/2019  - MRK
 	public void mousehover(WebElement ele) {
 		String text = "";
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 10);
 			wait.until(ExpectedConditions.elementToBeClickable(ele));
-			 Actions action = new Actions(driver);
+			Actions action = new Actions(driver);
 			action.moveToElement(ele);
 			reportStep("The element "+text+" is moved", "PASS");
 		} catch (InvalidElementStateException e) {
@@ -426,7 +447,7 @@ public void type(WebElement ele, String data) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 10);
 			wait.until(ExpectedConditions.elementToBeClickable(ele));	
-			 Actions action = new Actions(driver);
+			Actions action = new Actions(driver);
 			action.moveToElement(ele).click().perform();
 			reportStep("The element "+text+" is moved and clicked", "PASS");
 		} catch (InvalidElementStateException e) {
@@ -435,7 +456,7 @@ public void type(WebElement ele, String data) {
 			reportStep("Unknown exception occured while clicking in the field :", "FAIL");
 		} 
 	}
-	
+
 }
 
 

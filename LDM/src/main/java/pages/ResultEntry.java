@@ -1,12 +1,21 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 
+import wdMethods.ProjectMethods;
 import wdMethods.SeMethods;
 
-public class ResultEntry extends SeMethods {
+public class ResultEntry extends ProjectMethods {
+	
+	public ResultEntry() {
+		PageFactory.initElements(driver, this);  
+	}
+	
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI0_") WebElement eleREDelete;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI1_") WebElement eleRESave;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI2_") WebElement eleREQueryPanel;
@@ -18,6 +27,8 @@ public class ResultEntry extends SeMethods {
 	@FindBy(how=How.ID, using="Vertical_SearchAC_Menu_ITCNT0_xaf_a0_Ed_B1") WebElement eleRESearchBtn;
 	@FindBy(how=How.XPATH, using="//span[contains(@id,'_DXSelAllBtn59_D')]") WebElement eleRESelectAll;
 	@FindBy(how=How.XPATH, using="//span[contains(@id,'_DXSelBtn0_D')]") WebElement eleRESelectFirstRow;
+	@FindBy(how=How.XPATH, using="//span[contains(@id,'DXPagerBottom_PSB')]") WebElement eleREPageSize;
+	@FindBy(how=How.XPATH, using="//div[contains(@id,'DXPagerBottom_PSP_DXME_')]/ul/li/div/span") List<WebElement> eleRESelectPageSize;
 	
 	//Query Data::
 	@FindBy(how=How.ID, using="Dialog_SAC_Menu_DXI0_") WebElement eleREQueryOk;
@@ -44,6 +55,7 @@ public class ResultEntry extends SeMethods {
 	@FindBy(how=How.ID, using="FindDialog_PopupActions_Menu_DXI1_") WebElement eleRETestCancel;
 	 
 	public ResultEntry clickREDelete() {
+		verifyEnabled(eleREDelete) ;
 		click(eleREDelete);
 		return this;
 	}
@@ -86,9 +98,18 @@ public class ResultEntry extends SeMethods {
 		return this;   
 	}
 	public ResultEntry clickRESelectFirstRow() {
+	
 		click(eleRESelectFirstRow);
 	return this;   
 	}
+	
+	public ResultEntry SelectSLVPageSize(String data) {
+		click(eleREPageSize);
+		clickbyElements(eleRESelectPageSize,data);
+		
+		return this;
+	}
+	
 	
 	//QueryData::
 	public ResultEntry clickREJObIdOk() {

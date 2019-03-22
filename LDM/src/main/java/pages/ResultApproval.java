@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -8,10 +10,11 @@ import org.openqa.selenium.support.PageFactory;
 import wdMethods.ProjectMethods;
 
 public class ResultApproval extends ProjectMethods {
-	
+
 	public ResultApproval() {
 		PageFactory.initElements(driver, this);
-		}
+	}
+
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI0_") WebElement eleRASave;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI1_") WebElement eleRARollBack;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI2_") WebElement eleRAQueryData;
@@ -21,6 +24,8 @@ public class ResultApproval extends ProjectMethods {
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI5_") WebElement eleRAExportTo;
 	@FindBy(how=How.ID, using="Vertical_SearchAC_Menu_ITCNT0_xaf_a0_Ed_I") WebElement eleRASearchText;
 	@FindBy(how=How.ID, using="Vertical_SearchAC_Menu_ITCNT0_xaf_a0_Ed_B1") WebElement eleRASearchBtn;
+	@FindBy(how=How.XPATH, using="//span[contains(@id,'DXPagerBottom_PSB')]") WebElement eleRAPageSize;
+	@FindBy(how=How.XPATH, using="//div[contains(@id,'DXPagerBottom_PSP_DXME_')]/ul/li/div/span") List<WebElement> eleRASelectPageSize;
 
 	//Query Data::
 	@FindBy(how=How.ID, using="Dialog_SAC_Menu_DXI0_") WebElement eleRAQueryOk;
@@ -29,7 +34,7 @@ public class ResultApproval extends ProjectMethods {
 	@FindBy(how=How.XPATH, using="//td[contains(@id,'_dviJobID_Edit_find_Edit_B1') and @title ='Clear']") WebElement eleRAQueryJobIDClear;
 	@FindBy(how=How.XPATH, using="//td[contains(@id,'_dviTestName_Edit_find_Edit_B0') and @title ='Find']") WebElement eleRAQueryTestFind;
 	@FindBy(how=How.XPATH, using="//td[contains(@id,'_dviTestName_Edit_find_Edit_B1') and @title ='Clear']") WebElement eleRAQueryTestClear;
-	
+
 	//JobId Popup::
 	@FindBy(how=How.XPATH, using="//iframe[contains(@id,'Dialog_PopupWindow')]") WebElement eleRAJobIdFrame;
 	@FindBy(how=How.ID, using="FindDialog_SAC_Menu_ITCNT0_xaf_a0_Ed_I") WebElement eleRAJobIdText;
@@ -79,6 +84,13 @@ public class ResultApproval extends ProjectMethods {
 	public ResultApproval RVSearch(String data) {
 		type(eleRASearchText,data);
 		click(eleRASearchBtn);
+		return this;
+	}
+
+	public ResultApproval SelectSLVPageSize(String data) {
+		click(eleRAPageSize);
+		clickbyElements(eleRASelectPageSize,data);
+
 		return this;
 	}
 

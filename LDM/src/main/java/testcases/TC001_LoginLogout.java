@@ -17,50 +17,24 @@ public class TC001_LoginLogout extends ProjectMethods{
 		testNodes = "Leads";
 		authors ="Muthu Ravi Kiran";
 		category = "smoke";
-		//dataSheetName=" ";
+		dataSheetName="TC001";
+		SheetName =	"sheet1";
 	}
-	@Test()
-	public void ValidUsernameAndPassword() {
+	@Test(dataProvider="fetchData")
+	public void ValidUsernameAndPassword(String uname, String pass) {
 		new LoginPage() 
-		.enterUsername("administrator")
-		.enterPassword("password-1")  
+		.enterUsername(uname)
+		.enterPassword(pass)  
 		.clickLogin()
-//		.clickSamCheckin()
-//		.clickSCVNew()
-//		.clickSCEClientFind()
-//		.clickSCESelectClient()
-//		.clickSCESaveOptions("Save and Close")
+		.clickSamRegTag()
+		.clickSamCheckin()
+		.clickSCVNew()
+		.clickSCEClientFind()
+		.clickSCESelectClient()
+		.clickSCESaveOptions("Save and Close")
 		;
 	}
-	@Test(dependsOnMethods = {"ValidUsernameAndPassword"})
-	public void InValidUsernameAndValidPassword() {
-		new LoginPage() 
-		.enterUsername("admin")
-		.enterPassword("password-1")
-		.clickLogin() ;
-	}
-	@Test(dependsOnMethods = {"InValidUsernameAndValidPassword"})
-	public void ValidUsernameAndInValidPassword() {
-		new LoginPage() 
-		.enterUsername("administrator")
-		.enterPassword("password")
-		.clickLogin() ;
-	}
-	@Test(dependsOnMethods = {"ValidUsernameAndPassword"})
-	public void EmptyUsernameAndValidPassword() {
-		new LoginPage() 
-		.enterUsername(" ")
-		.enterPassword("password-1")
-		.clickLogin() ;
-	}
-	
-	@Test(dependsOnMethods = {"EmptyUsernameAndValidPassword"})
-	public void ValidUsernameAndEmptyPassword() {
-		new LoginPage() 
-		.enterUsername("administrator")
-		.enterPassword(" ")
-		.clickLogin() ;
-	}
+
 }
 
 

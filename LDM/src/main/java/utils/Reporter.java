@@ -70,9 +70,6 @@ public abstract class Reporter {
 		reportStep(desc, status, true);
 	}
 
-
-
-
 	public void endResult() {
 		extent.flush();
 	}	
