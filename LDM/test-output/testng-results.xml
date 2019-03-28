@@ -2,36 +2,36 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="148025" started-at="2019-03-20T16:50:00Z" finished-at="2019-03-20T16:52:28Z">
+  <suite name="Default suite" duration-ms="36581" started-at="2019-03-26T01:05:34Z" finished-at="2019-03-26T01:06:11Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="148025" started-at="2019-03-20T16:50:00Z" finished-at="2019-03-20T16:52:28Z">
+    <test name="Default test" duration-ms="36581" started-at="2019-03-26T01:05:34Z" finished-at="2019-03-26T01:06:11Z">
       <class name="testcases.TC003_SampleCheckin">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="beforeSuite" is-config="true" duration-ms="1461" started-at="2019-03-20T22:19:59Z" finished-at="2019-03-20T22:20:00Z">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="beforeSuite" is-config="true" duration-ms="1650" started-at="2019-03-26T06:35:33Z" finished-at="2019-03-26T06:35:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="setData()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="setData" is-config="true" duration-ms="0" started-at="2019-03-20T22:20:00Z" finished-at="2019-03-20T22:20:00Z">
+        <test-method status="PASS" signature="setData()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="setData" is-config="true" duration-ms="0" started-at="2019-03-26T06:35:34Z" finished-at="2019-03-26T06:35:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setData -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="beforeClass" is-config="true" duration-ms="2" started-at="2019-03-20T22:20:00Z" finished-at="2019-03-20T22:20:00Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="beforeClass" is-config="true" duration-ms="1" started-at="2019-03-26T06:35:34Z" finished-at="2019-03-26T06:35:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="beforeMethod" is-config="true" duration-ms="6454" started-at="2019-03-20T22:20:00Z" finished-at="2019-03-20T22:20:07Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="beforeMethod" is-config="true" duration-ms="6561" started-at="2019-03-26T06:35:34Z" finished-at="2019-03-26T06:35:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="FAIL" signature="ValidUsernameAndPassword()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="ValidUsernameAndPassword" duration-ms="141537" started-at="2019-03-20T22:20:07Z" finished-at="2019-03-20T22:22:28Z">
+        <test-method status="FAIL" signature="ValidUsernameAndPassword()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="ValidUsernameAndPassword" duration-ms="29994" started-at="2019-03-26T06:35:41Z" finished-at="2019-03-26T06:36:11Z">
           <exception class="java.lang.RuntimeException">
             <full-stacktrace>
               <![CDATA[java.lang.RuntimeException
 	at utils.Reporter.reportStep(Reporter.java:60)
 	at utils.Reporter.reportStep(Reporter.java:70)
-	at wdMethods.SeMethods.switchToFrame(SeMethods.java:327)
-	at pages.SampleCheckinView.getSCVJobIDBtn(SampleCheckinView.java:148)
-	at testcases.TC003_SampleCheckin.ValidUsernameAndPassword(TC003_SampleCheckin.java:28)
+	at wdMethods.SeMethods.verifyDisplayed(SeMethods.java:316)
+	at pages.SampleCheckinEdit.clickSCESaveAndCloseOptions(SampleCheckinEdit.java:270)
+	at testcases.TC003_SampleCheckin.ValidUsernameAndPassword(TC003_SampleCheckin.java:31)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -63,15 +63,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ValidUsernameAndPassword -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="afterMethod" is-config="true" duration-ms="2" started-at="2019-03-20T22:22:28Z" finished-at="2019-03-20T22:22:28Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="afterMethod" is-config="true" duration-ms="1" started-at="2019-03-26T06:36:11Z" finished-at="2019-03-26T06:36:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="afterTest" is-config="true" duration-ms="0" started-at="2019-03-20T22:22:28Z" finished-at="2019-03-20T22:22:28Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="afterTest" is-config="true" duration-ms="0" started-at="2019-03-26T06:36:11Z" finished-at="2019-03-26T06:36:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="afterSuite" is-config="true" duration-ms="593" started-at="2019-03-20T22:22:28Z" finished-at="2019-03-20T22:22:29Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:testcases.TC003_SampleCheckin@55d56113]" name="afterSuite" is-config="true" duration-ms="523" started-at="2019-03-26T06:36:11Z" finished-at="2019-03-26T06:36:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->

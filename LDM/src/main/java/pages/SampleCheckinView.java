@@ -166,7 +166,6 @@ public class SampleCheckinView  extends ProjectMethods{
 	}
 	
 
-
 	//JobId::
 	public SampleCheckinView SearchSCVJObId(String JobId) {
 		type(eleSCVJobIdText,JobId);

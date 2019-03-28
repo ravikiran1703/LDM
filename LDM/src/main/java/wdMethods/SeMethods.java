@@ -45,7 +45,7 @@ public class SeMethods extends Reporter implements WdMethods{
 				System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
 				driver = new FirefoxDriver();
 			}
-			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.get(url);
 			driver.manage().window().maximize();
 			//System.out.println("The browser "+browser+" launched successfully");
@@ -95,28 +95,73 @@ public class SeMethods extends Reporter implements WdMethods{
 	//Added on 27/02/2019 - MRK.
 	// To Click the elements with the choice from the string value  
 	public void clickbyElements(List<WebElement> allItems , String locValueChoice) {
-
-
+		String text = "";
+		try {
 		for (int i = 0; i < allItems.size(); i++) {
 			if (allItems.get(i).getText().contains(locValueChoice)) {
+				text = allItems.get(i).getText();
 				allItems.get(i).click();
+				break;
 			} 
 		}
+		reportStep("The element "+text+" is Double clicked", "PASS",true);
+	} catch (InvalidElementStateException e) {
+		reportStep("The element: "+text+" could not be Double clicked", "FAIL",true);
+	} catch (WebDriverException e) {
+		reportStep("Unknown exception occured while clicking in the field :", "FAIL",false);
+	} 
 	}
+	
+	
+//	public void clickbypages(List<WebElement> allItems , String locValueChoice) {
+//		String text = "";
+//		try {
+//		for (int i = 0; i < allItems.size(); i++) {
+//			if (allItems.get(i).getText().{
+//				text = allItems.get(i).getText();
+//				allItems.get(i).click();
+//				break;
+//			} 
+//		}
+//		}
+//		}
+	
+	//Added on 26/03/2019 - MRK.
+		// To Click the elements with the choice from the string value  
+	public void doubleClickElements(List<WebElement> allItems , String locValueChoice) {
+		Actions action = new Actions(driver);
+		String text = "";
+		try {
+			for (int i = 0; i < allItems.size(); i++) {
+				if (allItems.get(i).getText().contains(locValueChoice)) {
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			wait.until(ExpectedConditions.elementToBeClickable(allItems.get(i)));			
+			text = allItems.get(i).getText();
+			action.doubleClick(allItems.get(i)).perform();
+			break;
+				}
+				}
+			reportStep("The element "+text+" is Double clicked", "PASS",true);
+		} catch (InvalidElementStateException e) {
+			reportStep("The element: "+text+" could not be Double clicked", "FAIL",true);
+		} catch (WebDriverException e) {
+			reportStep("Unknown exception occured while clicking in the field :", "FAIL",false);
+		} 
+		}
 
 	//Added on 19/03/2019 - MRK.
 	// To verify atleast one checkbox is selected in a gird  
 	public boolean VerifyAtLeastOneSelected(List<WebElement> allItems) {
 
-
 		for (int i = 0; i < allItems.size(); i++) {
 			if (allItems.get(i).isSelected()) {
-				return true;	 
+				return true;
+			
 			} 
 
 		}
 		return false;
-	}
+		}
 
 
 
@@ -330,12 +375,27 @@ public class SeMethods extends Reporter implements WdMethods{
 			e.printStackTrace();
 		} 
 	}
+	
+	public void switchToDefault() {
+		try {
+			Thread.sleep(5000);
+			driver.switchTo().defaultContent();
+			reportStep("switch In to the defaultContent ","PASS");
+		} catch (NoSuchFrameException e) {
+			reportStep("WebDriverException : "+e.getMessage(), "FAIL");
+		} catch (WebDriverException e) {
+			reportStep("WebDriverException : "+e.getMessage(), "FAIL");
+		} catch (InterruptedException e) {
+			 //TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+	}
 
 	public void acceptAlert() {
 		String text = "";		
 		try {
 
-			WebDriverWait wait = new WebDriverWait(driver, 10);
+			WebDriverWait wait = new WebDriverWait(driver, 60);
 			wait.until(ExpectedConditions.alertIsPresent());
 			Alert alert = driver.switchTo().alert();
 			text = alert.getText();

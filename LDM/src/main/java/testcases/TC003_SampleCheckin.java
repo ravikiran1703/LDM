@@ -24,7 +24,11 @@ public class TC003_SampleCheckin extends ProjectMethods{
 		.enterUsername("administrator")
 		.enterPassword("password-1")  
 		.clickLogin()
-		.clickSamRegTag().clickSamCheckin().clickSCVNew()
+		.clickSamRegTag().clickSamCheckin()
+		.clickSCVNew()
+		.clickSCEClientFind()
+		.doubleClickSCESelectClient("ABL")
+		.clickSCESaveAndCloseOptions("Save and New").clickSamLogin().clickSLVNew()
 ;
 	}
 }
