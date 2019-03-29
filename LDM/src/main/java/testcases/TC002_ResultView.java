@@ -12,28 +12,36 @@ public class TC002_ResultView extends ProjectMethods{
 	public void setData() {
 		testCaseName = "TC002_ResultView";
 		testDescription ="ResultView";
-		testNodes = "Result";
+		testNodes = "Sample Checkin";
 		authors ="Muthu Ravi Kiran";
 		category = "smoke";
-		dataSheetName="";
-		SheetName =	"";
+		dataSheetName="TC001";
+		SheetName =	"Sheet1";
 	}
-	@Test()
-	public void ValidUsernameAndPassword() throws InterruptedException{
+	@Test(dataProvider="fetchData")
+	public void ValidUsernameAndPassword(String uname, String pass,String RecievedBy,String Client,String Contact,String BroughtBy,String ProjectID,String NoOfSamp,String TestDescp,String Comment,String ESaveAnd) throws InterruptedException{
 		new LoginPage() 
-		.enterUsername("administrator")
-		.enterPassword("password-1")  
+		.enterUsername(uname)
+		.enterPassword(pass)  
 		.clickLogin()
-		//.clickSamRegTag().clickSamCheckin().clickSCVQueryPanel()
-
-		.clickAnalysisTag().clickResultView()
-				
-		.clickRVQueryDataBtn()
-		.getRVJobIDBtn()
-		.switchRVJobIDFrame()
-		.DoubleClickRVJObIdFirstRow()
-		.clickRVJObIdOk()
-		.clickRVRollBack()
+		.clickSamRegTag()
+		.clickSamCheckin()
+		.clickSCVNew()
+		.clickSCEReceivedByFind()
+		.doubleClickSCESelectRecievedBy(RecievedBy)
+		.clickSCEClientFind()
+		.doubleClickSCESelectClient(Client)
+	 	.clickSCEContactNameFind()
+		.doubleClickSCESelectContact(Contact)
+		.clickSCEBroughtByFind()
+		.doubleClickSCESelectBroughtBy(BroughtBy)
+		.clickSCEProjectIDFind()
+		.doubleClickSCESelectProjectID(ProjectID)
+		.TypeNoOfSamples(NoOfSamp)
+		.TypeTestDescp(TestDescp)
+		.TypeComment(Comment)
+		.clickSCESaveAndCloseOptions(ESaveAnd)
+	
 		;
 	}
 

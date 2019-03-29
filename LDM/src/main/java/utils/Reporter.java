@@ -24,7 +24,6 @@ public abstract class Reporter {
 		extent.attachReporter(html);	
 	}
 
-
 	public ExtentTest startTestModule(String testCaseName, String testDescription) {
 		suiteTest = extent.createTest(testCaseName, testDescription);
 		return suiteTest;

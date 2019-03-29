@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\muthuravie\AppData\Local\Temp\testng-eclipse-1079098738\testng-customsuite.xml</span>
+                    <span>C:\Users\muthuravie\AppData\Local\Temp\testng-eclipse--1282570097\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">3 methods, 3 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -102,7 +102,17 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="testcases.TC003_SampleCheckin" hash-for-method="ValidUsernameAndPassword">ValidUsernameAndPassword</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="testcases.TC002_ResultView" hash-for-method="ValidUsernameAndPassword(administrator, password-1, Blake McElmurry, AKRK Technologies, Inc., Rajesh Konduru, Robert, EOI war...)">ValidUsernameAndPassword(administrator, password-1, Blake McElmurry, AKRK Technologies, Inc., Rajesh Konduru, Robert, EOI war...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="testcases.TC002_ResultView" hash-for-method="ValidUsernameAndPassword(administrator, password-1, anu c, Environmental Operations, Inc., Aaron Mendez, Vignesh  A,  Baltimo...)">ValidUsernameAndPassword(administrator, password-1, anu c, Environmental Operations, Inc., Aaron Mendez, Vignesh  A,  Baltimo...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="testcases.TC002_ResultView" hash-for-method="ValidUsernameAndPassword(administrator, password-1, anu c, CVR Labs Pvt Ltd, Aaron Mendez, Johnson, 646810-Philadelphia Housi...)">ValidUsernameAndPassword(administrator, password-1, anu c, CVR Labs Pvt Ltd, Aaron Mendez, Johnson, 646810-Philadelphia Housi...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -120,20 +130,103 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">testcases.TC003_SampleCheckin</span>
+              <span class="class-name">testcases.TC002_ResultView</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="ValidUsernameAndPassword">
-                  </a> <!-- ValidUsernameAndPassword -->
+                  <a name="ValidUsernameAndPassword(administrator, password-1, Blake McElmurry, AKRK Technologies, Inc., Rajesh Konduru, Robert, EOI war...)">
+                  </a> <!-- ValidUsernameAndPassword(administrator, password-1, Blake McElmurry, AKRK Technologies, Inc., Rajesh Konduru, Robert, EOI war...) -->
                   <span class="method-name">ValidUsernameAndPassword</span>
+                  <span class="parameters">(administrator, password-1, Blake McElmurry, AKRK Technologies, Inc., Rajesh Konduru, Robert, EOI warehouse samples, 12, New Description1, New Comment@1, Save and Close)</span>
                   <div class="stack-trace">java.lang.RuntimeException
-	at utils.Reporter.reportStep(Reporter.java:60)
-	at utils.Reporter.reportStep(Reporter.java:70)
-	at wdMethods.SeMethods.verifyDisplayed(SeMethods.java:316)
-	at pages.SampleCheckinEdit.clickSCESaveAndCloseOptions(SampleCheckinEdit.java:270)
-	at testcases.TC003_SampleCheckin.ValidUsernameAndPassword(TC003_SampleCheckin.java:31)
+	at utils.Reporter.reportStep(Reporter.java:59)
+	at utils.Reporter.reportStep(Reporter.java:69)
+	at wdMethods.SeMethods.click(SeMethods.java:173)
+	at pages.SampleCheckinEdit.clickSCEContactNameFind(SampleCheckinEdit.java:177)
+	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:34)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ValidUsernameAndPassword(administrator, password-1, anu c, Environmental Operations, Inc., Aaron Mendez, Vignesh  A,  Baltimo...)">
+                  </a> <!-- ValidUsernameAndPassword(administrator, password-1, anu c, Environmental Operations, Inc., Aaron Mendez, Vignesh  A,  Baltimo...) -->
+                  <span class="method-name">ValidUsernameAndPassword</span>
+                  <span class="parameters">(administrator, password-1, anu c, Environmental Operations, Inc., Aaron Mendez, Vignesh  A,  Baltimore City Project, 9, New Description@1, New CommentSS, Save and Close)</span>
+                  <div class="stack-trace">java.lang.RuntimeException
+	at utils.Reporter.reportStep(Reporter.java:59)
+	at utils.Reporter.reportStep(Reporter.java:69)
+	at wdMethods.SeMethods.click(SeMethods.java:173)
+	at pages.SampleCheckinEdit.clickSCEBroughtByFind(SampleCheckinEdit.java:182)
+	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:36)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ValidUsernameAndPassword(administrator, password-1, anu c, CVR Labs Pvt Ltd, Aaron Mendez, Johnson, 646810-Philadelphia Housi...)">
+                  </a> <!-- ValidUsernameAndPassword(administrator, password-1, anu c, CVR Labs Pvt Ltd, Aaron Mendez, Johnson, 646810-Philadelphia Housi...) -->
+                  <span class="method-name">ValidUsernameAndPassword</span>
+                  <span class="parameters">(administrator, password-1, anu c, CVR Labs Pvt Ltd, Aaron Mendez, Johnson, 646810-Philadelphia Housing Authority, 5, New Description, New Comment, Save and Close)</span>
+                  <div class="stack-trace">java.lang.RuntimeException
+	at utils.Reporter.reportStep(Reporter.java:59)
+	at utils.Reporter.reportStep(Reporter.java:69)
+	at wdMethods.SeMethods.click(SeMethods.java:173)
+	at pages.SampleCheckinEdit.clickSCEContactNameFind(SampleCheckinEdit.java:177)
+	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:34)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -168,7 +261,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\muthuravie\AppData\Local\Temp\testng-eclipse-1079098738\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\muthuravie\AppData\Local\Temp\testng-eclipse--1282570097\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -177,7 +270,7 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;testcases.TC003_SampleCheckin&quot;/&gt;
+      &lt;class name=&quot;testcases.TC002_ResultView&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -217,16 +310,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'ValidUsernameAndPassword')
-data.setCell(0, 2, 'testcases.TC003_SampleCheckin')
-data.setCell(0, 3, 29994);
+data.setCell(0, 2, 'testcases.TC002_ResultView')
+data.setCell(0, 3, 84352);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'ValidUsernameAndPassword')
+data.setCell(1, 2, 'testcases.TC002_ResultView')
+data.setCell(1, 3, 40550);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'ValidUsernameAndPassword')
+data.setCell(2, 2, 'testcases.TC002_ResultView')
+data.setCell(2, 3, 40161);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 29 seconds</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -252,40 +353,68 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">testcases.TC003_SampleCheckin</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">testcases.TC002_ResultView</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">beforeSuite</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">setData</span>
-                <span class="method-start">1653 ms</span>
+                <span class="method-start">2300 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">1658 ms</span>
+                <span class="method-start">2305 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">beforeMethod</span>
-                <span class="method-start">1669 ms</span>
+                <span class="method-start">2952 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">ValidUsernameAndPassword</span>
-                <span class="method-start">8230 ms</span>
+                <span class="method-name">ValidUsernameAndPassword(administrator, password-1, anu c, CVR Labs Pvt Ltd, Aaron Mendez, Johnson, 646810-Philadelphia Housi...)</span>
+                <span class="method-start">9124 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">38229 ms</span>
+                <span class="method-start">49681 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">49682 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">ValidUsernameAndPassword(administrator, password-1, Blake McElmurry, AKRK Technologies, Inc., Rajesh Konduru, Robert, EOI war...)</span>
+                <span class="method-start">55029 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">95191 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod</span>
+                <span class="method-start">95192 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">ValidUsernameAndPassword(administrator, password-1, anu c, Environmental Operations, Inc., Aaron Mendez, Vignesh  A,  Baltimo...)</span>
+                <span class="method-start">100393 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">184748 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-test after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">38231 ms</span>
+                <span class="method-start">184749 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
                 <span class="method-name">afterSuite</span>
-                <span class="method-start">38320 ms</span>
+                <span class="method-start">184777 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

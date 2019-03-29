@@ -102,7 +102,7 @@ public class ResultView extends ProjectMethods {
 
 	public ResultView SelectRVPageSize(String data) {
 		click(eleRVPageSize);
-		clickbyElements(eleRVSelectPageSize,data);
+		clickfromList(eleRVSelectPageSize,data);
 
 		return this;
 	}

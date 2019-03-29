@@ -127,7 +127,7 @@ public class SampleLoginView extends ProjectMethods{
 
 	public SampleLoginView SelectSLVPageSize(String data) {
 		click(eleSLVPageSize);
-		clickbyElements(eleSLVSelectPageSize,data);
+		clickfromList(eleSLVSelectPageSize,data);
 		return this;
 	}
 	

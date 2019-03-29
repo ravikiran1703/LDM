@@ -165,7 +165,7 @@ public class SampleCheckinEdit  extends ProjectMethods{
 	@FindBy(how=How.XPATH, using="//div[contains(@id,'dviImageUpload_ToolBar_Menu_DXSA2')]/ul/li/a") List<WebElement> eleSCEImgUpExportToList;
 
 	// the Flash Message popups after saving JobId, Id cannot be used because the number may vary if the changes happens::
-	@FindBy(how=How.XPATH, using="//script[contains(@id,'dxss') and contains(text(),'Saved Success')]") WebElement eleSCEVerifySave;
+	@FindBy(how=How.XPATH, using="//div[@id ='ScriptContainer']/script[contains(@id,'dxss') and contains(text(),'Saved Success')]") WebElement eleSCEVerifySave;
 	//@FindBy(how=How.ID, using="dxss_830993610") WebElement eleSCEVerifySave;
 
 	public SampleCheckinEdit clickSCEClientFind() {
@@ -253,7 +253,6 @@ public class SampleCheckinEdit  extends ProjectMethods{
 
 	public SampleCheckinEdit doubleClickSCESelectRecievedBy(String RecievedBy)  {
 		switchToFrame(eleSCEPopupFrame);
-
 		doubleClickElements(eleSCERecievedByList,RecievedBy);	      
 		return this;   
 	}
@@ -276,7 +275,7 @@ public class SampleCheckinEdit  extends ProjectMethods{
 
 	public SampleCheckinEdit clickSCESaveOptions(String saveType) {
 		mousehoverandClick(eleSCESaveDrpdwnBtn);
-		clickbyElements(eleSCESaveTypeslist,saveType);
+		clickfromList(eleSCESaveTypeslist,saveType);
 		acceptAlert();
 		verifyDisplayed(eleSCEVerifySave);
 		return this;  
@@ -285,9 +284,9 @@ public class SampleCheckinEdit  extends ProjectMethods{
 
 	public HomePage clickSCESaveAndCloseOptions(String saveType) {
 		mousehoverandClick(eleSCESaveDrpdwnBtn);
-		clickbyElements(eleSCESaveTypeslist,saveType);
+		clickfromList(eleSCESaveTypeslist,saveType);
 		acceptAlert();
-		verifyDisplayed(eleSCEVerifySave);
+	//	verifyDisplayed(eleSCEVerifySave);
 		return new HomePage();  
 	}
 }

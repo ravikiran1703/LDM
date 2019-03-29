@@ -90,7 +90,7 @@ public class ResultValidation  extends ProjectMethods{
 	
 	public ResultValidation SelectSLVPageSize(String data) {
 		click(eleRValPageSize);
-		clickbyElements(eleRValSelectPageSize,data);
+		clickfromList(eleRValSelectPageSize,data);
 		
 		return this;
 	}

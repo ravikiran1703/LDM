@@ -105,7 +105,7 @@ public class ResultEntry extends ProjectMethods {
 	
 	public ResultEntry SelectSLVPageSize(String data) {
 		click(eleREPageSize);
-		clickbyElements(eleRESelectPageSize,data);
+		clickfromList(eleRESelectPageSize,data);
 		
 		return this;
 	}

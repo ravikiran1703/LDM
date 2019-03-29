@@ -121,13 +121,13 @@ public class SampleCheckinView  extends ProjectMethods{
 	public SampleCheckinView SCVExportToByFileType(String ExportTo) {
 		mousehoverandClick(eleSCVDotsbtn);
 		mousehoverandClick(eleSCVExportDrpDwn);
-		clickbyElements(eleSCVExporttoList,ExportTo);
+		clickfromList(eleSCVExporttoList,ExportTo);
 		return this;   
 	}
 
 	public SampleCheckinView SelectSCVPageSize(String data) {
 		click(eleSCVPageSize);
-		clickbyElements(eleSCVSelectPageSize,data);
+		clickfromList(eleSCVSelectPageSize,data);
 		return this;
 	}
 	

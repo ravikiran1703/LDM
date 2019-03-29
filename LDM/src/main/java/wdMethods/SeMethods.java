@@ -94,37 +94,27 @@ public class SeMethods extends Reporter implements WdMethods{
 
 	//Added on 27/02/2019 - MRK.
 	// To Click the elements with the choice from the string value  
-	public void clickbyElements(List<WebElement> allItems , String locValueChoice) {
+	public void clickfromList(List<WebElement> allItems , String locValueChoice) {
 		String text = "";
 		try {
+			WebDriverWait wait = new WebDriverWait(driver, 15);
+						
+		
 		for (int i = 0; i < allItems.size(); i++) {
-			if (allItems.get(i).getText().contains(locValueChoice)) {
+			if (allItems.get(i).getText().equalsIgnoreCase(locValueChoice)) {
 				text = allItems.get(i).getText();
+				wait.until(ExpectedConditions.elementToBeClickable(allItems.get(i)));
 				allItems.get(i).click();
 				break;
 			} 
 		}
-		reportStep("The element "+text+" is Double clicked", "PASS",true);
+		reportStep("The element "+text+" is clicked from List", "PASS",true);
 	} catch (InvalidElementStateException e) {
-		reportStep("The element: "+text+" could not be Double clicked", "FAIL",true);
+		reportStep("The element: "+text+" could not be clicked from List", "FAIL",true);
 	} catch (WebDriverException e) {
 		reportStep("Unknown exception occured while clicking in the field :", "FAIL",false);
 	} 
 	}
-	
-	
-//	public void clickbypages(List<WebElement> allItems , String locValueChoice) {
-//		String text = "";
-//		try {
-//		for (int i = 0; i < allItems.size(); i++) {
-//			if (allItems.get(i).getText().{
-//				text = allItems.get(i).getText();
-//				allItems.get(i).click();
-//				break;
-//			} 
-//		}
-//		}
-//		}
 	
 	//Added on 26/03/2019 - MRK.
 		// To Click the elements with the choice from the string value  
@@ -133,13 +123,16 @@ public class SeMethods extends Reporter implements WdMethods{
 		String text = "";
 		try {
 			for (int i = 0; i < allItems.size(); i++) {
-				if (allItems.get(i).getText().contains(locValueChoice)) {
+				
+				if (allItems.get(i).getText().equalsIgnoreCase(locValueChoice)){
+						
 			WebDriverWait wait = new WebDriverWait(driver, 10);
 			wait.until(ExpectedConditions.elementToBeClickable(allItems.get(i)));			
 			text = allItems.get(i).getText();
 			action.doubleClick(allItems.get(i)).perform();
 			break;
 				}
+				
 				}
 			reportStep("The element "+text+" is Double clicked", "PASS",true);
 		} catch (InvalidElementStateException e) {
@@ -363,7 +356,7 @@ public class SeMethods extends Reporter implements WdMethods{
 
 	public void switchToFrame(WebElement ele) {
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			driver.switchTo().frame(ele);
 			reportStep("switch In to the Frame "+ele,"PASS");
 		} catch (NoSuchFrameException e) {
@@ -511,9 +504,9 @@ public class SeMethods extends Reporter implements WdMethods{
 			action.moveToElement(ele).click().perform();
 			reportStep("The element "+text+" is moved and clicked", "PASS");
 		} catch (InvalidElementStateException e) {
-			reportStep("The element: "+text+" could not be moved and clicked", "FAIL");
-		} catch (WebDriverException e) {
-			reportStep("Unknown exception occured while clicking in the field :", "FAIL");
+			reportStep("The element: "+text+" could not be moved and clicked"+e, "FAIL");
+		} catch (Exception e) {
+			reportStep("Unknown exception occured while clicking in the field :"+e, "FAIL");
 		} 
 	}
 

@@ -89,7 +89,7 @@ public class ResultApproval extends ProjectMethods {
 
 	public ResultApproval SelectSLVPageSize(String data) {
 		click(eleRAPageSize);
-		clickbyElements(eleRASelectPageSize,data);
+		clickfromList(eleRASelectPageSize,data);
 
 		return this;
 	}
