@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/3/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Mar 29 05:01:27 IST 2019</td>
+<td>Started on:</td><td>Mon Apr 01 21:53:08 IST 2019</td>
 </tr>
-<tr><td>Total time:</td><td>182 seconds (182452 ms)</td>
+<tr><td>Total time:</td><td>122 seconds (122583 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,12 +76,23 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='testcases.TC002_ResultView.ValidUsernameAndPassword()'><b>ValidUsernameAndPassword</b><br>Test class: testcases.TC002_ResultView<br>Parameters: administrator, password-1, anu c, CVR Labs Pvt Ltd, Aaron Mendez, Johnson, 646810-Philadelphia Housing Authority, 5, New Description, New Comment, Save and Close</td>
-<td><div><pre>java.lang.RuntimeException
-	at utils.Reporter.reportStep(Reporter.java:59)
-	at utils.Reporter.reportStep(Reporter.java:69)
-	at wdMethods.SeMethods.click(SeMethods.java:173)
-	at pages.SampleCheckinEdit.clickSCEContactNameFind(SampleCheckinEdit.java:177)
-	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:34)
+<td><div><pre>java.lang.NullPointerException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy15.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:315)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:301)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:298)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:686)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:682)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
+	at wdMethods.SeMethods.click(SeMethods.java:169)
+	at pages.SampleCheckinEdit.clickSCEClientFind(SampleCheckinEdit.java:172)
+	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:32)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -107,13 +118,24 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace501301044", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace501301044'><pre>java.lang.RuntimeException
-	at utils.Reporter.reportStep(Reporter.java:59)
-	at utils.Reporter.reportStep(Reporter.java:69)
-	at wdMethods.SeMethods.click(SeMethods.java:173)
-	at pages.SampleCheckinEdit.clickSCEContactNameFind(SampleCheckinEdit.java:177)
-	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:34)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1884982716", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1884982716'><pre>java.lang.NullPointerException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy15.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:315)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:301)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:298)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:686)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:682)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:248)
+	at wdMethods.SeMethods.click(SeMethods.java:169)
+	at pages.SampleCheckinEdit.clickSCEClientFind(SampleCheckinEdit.java:172)
+	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:32)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -140,16 +162,16 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>40</td>
+<td>41</td>
 <td>testcases.TC002_ResultView@55d56113</td></tr>
 <tr>
 <td title='testcases.TC002_ResultView.ValidUsernameAndPassword()'><b>ValidUsernameAndPassword</b><br>Test class: testcases.TC002_ResultView<br>Parameters: administrator, password-1, Blake McElmurry, AKRK Technologies, Inc., Rajesh Konduru, Robert, EOI warehouse samples, 12, New Description1, New Comment@1, Save and Close</td>
 <td><div><pre>java.lang.RuntimeException
 	at utils.Reporter.reportStep(Reporter.java:59)
 	at utils.Reporter.reportStep(Reporter.java:69)
-	at wdMethods.SeMethods.click(SeMethods.java:173)
-	at pages.SampleCheckinEdit.clickSCEContactNameFind(SampleCheckinEdit.java:177)
-	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:34)
+	at wdMethods.SeMethods.click(SeMethods.java:176)
+	at pages.SampleCheckinEdit.clickSCEClientFind(SampleCheckinEdit.java:172)
+	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:32)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -175,13 +197,13 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1529981411", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1529981411'><pre>java.lang.RuntimeException
+</pre></div><a href='#' onClick='toggleBox("stack-trace1742498632", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1742498632'><pre>java.lang.RuntimeException
 	at utils.Reporter.reportStep(Reporter.java:59)
 	at utils.Reporter.reportStep(Reporter.java:69)
-	at wdMethods.SeMethods.click(SeMethods.java:173)
-	at pages.SampleCheckinEdit.clickSCEContactNameFind(SampleCheckinEdit.java:177)
-	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:34)
+	at wdMethods.SeMethods.click(SeMethods.java:176)
+	at pages.SampleCheckinEdit.clickSCEClientFind(SampleCheckinEdit.java:172)
+	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:32)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -208,16 +230,16 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>40</td>
+<td>54</td>
 <td>testcases.TC002_ResultView@55d56113</td></tr>
 <tr>
 <td title='testcases.TC002_ResultView.ValidUsernameAndPassword()'><b>ValidUsernameAndPassword</b><br>Test class: testcases.TC002_ResultView<br>Parameters: administrator, password-1, anu c, Environmental Operations, Inc., Aaron Mendez, Vignesh  A,  Baltimore City Project, 9, New Description@1, New CommentSS, Save and Close</td>
 <td><div><pre>java.lang.RuntimeException
 	at utils.Reporter.reportStep(Reporter.java:59)
 	at utils.Reporter.reportStep(Reporter.java:69)
-	at wdMethods.SeMethods.click(SeMethods.java:173)
-	at pages.SampleCheckinEdit.clickSCEBroughtByFind(SampleCheckinEdit.java:182)
-	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:36)
+	at wdMethods.SeMethods.click(SeMethods.java:176)
+	at pages.SampleCheckinView.clickSCVNew(SampleCheckinView.java:67)
+	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:29)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -243,13 +265,13 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1739445449", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1739445449'><pre>java.lang.RuntimeException
+</pre></div><a href='#' onClick='toggleBox("stack-trace1360788400", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1360788400'><pre>java.lang.RuntimeException
 	at utils.Reporter.reportStep(Reporter.java:59)
 	at utils.Reporter.reportStep(Reporter.java:69)
-	at wdMethods.SeMethods.click(SeMethods.java:173)
-	at pages.SampleCheckinEdit.clickSCEBroughtByFind(SampleCheckinEdit.java:182)
-	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:36)
+	at wdMethods.SeMethods.click(SeMethods.java:176)
+	at pages.SampleCheckinView.clickSCVNew(SampleCheckinView.java:67)
+	at testcases.TC002_ResultView.ValidUsernameAndPassword(TC002_ResultView.java:29)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -276,7 +298,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>84</td>
+<td>7</td>
 <td>testcases.TC002_ResultView@55d56113</td></tr>
 </table><p>
 </body>

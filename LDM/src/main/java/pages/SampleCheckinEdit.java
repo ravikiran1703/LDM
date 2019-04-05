@@ -40,6 +40,9 @@ public class SampleCheckinEdit  extends ProjectMethods{
 	//TextBox
 	@FindBy(how=How.XPATH, using="//input[contains(@id,'_dviProjectName_Edit_I')]") WebElement eleSCEProjectNameTxtB;
 	@FindBy(how=How.XPATH, using="//input[contains(@id,'dviJobID_Edit_I')]") WebElement eleSCEJobIDTxtB;
+	@FindBy(how=How.XPATH, using="//table[contains(@id,'dviNumberOfSample')]//input") WebElement eleSCENoofSampTxtB;
+	
+	
 
 	//Frames for Find Button
 	@FindBy(how=How.XPATH, using="//iframe[contains(@id,'Vertical_PopupWindow')]") WebElement eleSCEPopupFrame;
@@ -74,8 +77,6 @@ public class SampleCheckinEdit  extends ProjectMethods{
 	@FindBy(how=How.ID, using="FindDialog_SAC_Menu_ITCNT0_xaf_a0_Ed_B1") WebElement eleSCEBroughtBySearchBtn;
 	@FindBy(how=How.ID, using="FindDialog_OC_Menu_DXI0_") WebElement eleSCENewBroughtByBtn;
 	@FindBy(how=How.ID, using="FindDialog_PopupActions_Menu_DXI1_") WebElement eleSCEBroughtByCancelBtn;
-
-
 
 	//Date TextBox::
 	@FindBy(how=How.XPATH, using="//input[contains(@id,'_dviRecievedDate_Edit_I')]") WebElement eleSCERecievedDateTxtB;
@@ -139,8 +140,6 @@ public class SampleCheckinEdit  extends ProjectMethods{
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI4_") WebElement eleSCESymbolBtn;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI5_") WebElement eleSCEPrevJobIdBtn;
 	@FindBy(how=How.ID, using="Vertical_mainMenu_Menu_DXI6_") WebElement eleSCENextJobIdBtn;
-
-	@FindBy(how=How.CLASS_NAME, using="XafVCap-Second MainMenuTruncateCaption") WebElement eleSCEJobIDCaption;
 
 	@FindBy(how=How.XPATH, using="//li[contains(@id,'dviSampleCategoryName_ObjectsCreation_Menu_DXI0')]") WebElement eleSCESamCatLinkBtn;
 	@FindBy(how=How.XPATH, using="//li[contains(@id,'dviSampleCategoryName_ObjectsCreation_Menu_DXI1')][2]") WebElement eleSCESamCatUnLinkBtn;
@@ -219,17 +218,17 @@ public class SampleCheckinEdit  extends ProjectMethods{
 
 
 	public SampleCheckinEdit TypeNoOfSamples(String NOofSamp) {
-
+		type(eleSCENoofSampTxtB,NOofSamp);
 		return  this;   
 	}
 
 	public SampleCheckinEdit TypeTestDescp(String TestDescp) {
-
+		type(eleSCETestDescriptionTxt,TestDescp);
 		return  this;   
 	}
 
 	public SampleCheckinEdit TypeComment(String Comment) {
-
+		type(eleSCECommentTxt,Comment);
 		return  this;   
 	}
 
@@ -262,9 +261,6 @@ public class SampleCheckinEdit  extends ProjectMethods{
 		doubleClickElements(eleSCEProjectIDList,ProjectID);	      
 		return this;   
 	}
-
-
-
 
 	public SampleCheckinEdit clickSCESave() {
 		click(eleSCESaveBtn);

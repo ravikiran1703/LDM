@@ -29,7 +29,7 @@ public class ProjectMethods extends SeMethods{
 		test = startTestCase(testNodes);
 		test.assignCategory(category);
 		test.assignAuthor(authors);
-		startApp("chrome", "http://106.51.2.102/CONS_Testing/Login.aspx");		
+		startApp("firefox", "http://106.51.2.102/CONS_Testing/Login.aspx");		
 	}
 
 	@AfterSuite

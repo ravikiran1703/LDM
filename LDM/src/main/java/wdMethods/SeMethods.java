@@ -21,6 +21,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -42,8 +43,11 @@ public class SeMethods extends Reporter implements WdMethods{
 				ChromeOptions options = new ChromeOptions();
 				driver = new ChromeDriver(options);
 			} else if(browser.equalsIgnoreCase("firefox")) {
-				System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
-				driver = new FirefoxDriver();
+				System.setProperty("webdriver.gecko.driver", "C:\\Selenium\\eclipse-workspace\\sel\\drivers\\geckodriver.exe");
+				FirefoxOptions options = new FirefoxOptions();
+				options.setCapability("marionette", false);
+				driver = new FirefoxDriver(options);
+			
 			}
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			driver.get(url);
@@ -99,12 +103,12 @@ public class SeMethods extends Reporter implements WdMethods{
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, 15);
 						
-		
 		for (int i = 0; i < allItems.size(); i++) {
 			if (allItems.get(i).getText().equalsIgnoreCase(locValueChoice)) {
 				text = allItems.get(i).getText();
 				wait.until(ExpectedConditions.elementToBeClickable(allItems.get(i)));
 				allItems.get(i).click();
+				reportStep("The element "+text+" is clicked from List", "PASS",true);
 				break;
 			} 
 		}
@@ -130,12 +134,12 @@ public class SeMethods extends Reporter implements WdMethods{
 			wait.until(ExpectedConditions.elementToBeClickable(allItems.get(i)));			
 			text = allItems.get(i).getText();
 			action.doubleClick(allItems.get(i)).perform();
+			reportStep("The element "+text+" is Double clicked", "PASS",true);
 			break;
 				}
-				
 				}
-			reportStep("The element "+text+" is Double clicked", "PASS",true);
-		} catch (InvalidElementStateException e) {
+			reportStep("The element "+text+" is Double click is not Performed", "FAIL",true);
+				} catch (InvalidElementStateException e) {
 			reportStep("The element: "+text+" could not be Double clicked", "FAIL",true);
 		} catch (WebDriverException e) {
 			reportStep("Unknown exception occured while clicking in the field :", "FAIL",false);
@@ -144,14 +148,13 @@ public class SeMethods extends Reporter implements WdMethods{
 
 	//Added on 19/03/2019 - MRK.
 	// To verify atleast one checkbox is selected in a gird  
+
 	public boolean VerifyAtLeastOneSelected(List<WebElement> allItems) {
 
 		for (int i = 0; i < allItems.size(); i++) {
 			if (allItems.get(i).isSelected()) {
 				return true;
-			
-			} 
-
+				} 
 		}
 		return false;
 		}
@@ -373,7 +376,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		try {
 			Thread.sleep(5000);
 			driver.switchTo().defaultContent();
-			reportStep("switch In to the defaultContent ","PASS");
+			
 		} catch (NoSuchFrameException e) {
 			reportStep("WebDriverException : "+e.getMessage(), "FAIL");
 		} catch (WebDriverException e) {
