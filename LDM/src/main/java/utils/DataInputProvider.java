@@ -19,7 +19,7 @@ public class DataInputProvider{
 			// get the number of rows
 			int rowCount = sheet.getLastRowNum();
 			// get the number of columns
-			int columnCount = sheet.getRow(0).getLastCellNum();
+			int columnCount = sheet.getRow(rowCount).getLastCellNum();
 
 			data = new String[rowCount][columnCount];
 
